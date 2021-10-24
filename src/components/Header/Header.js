@@ -1,3 +1,4 @@
+import { Search } from "components";
 import * as S from "./Header.styled";
 
 const Header = () => {
@@ -5,6 +6,7 @@ const Header = () => {
     <S.Container>
       <S.Header>
         <S.Logo src="assets/images/logo.png" alt="Hepsiburada" />
+        <Search />
       </S.Header>
     </S.Container>
   );
