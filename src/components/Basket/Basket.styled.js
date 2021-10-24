@@ -47,3 +47,23 @@ export const Menu = styled.div`
     background-color: #ffffff;
   }
 `;
+
+export const NotifyBubble = styled.div`
+  position: absolute;
+  top: -4px;
+  right: -4px;
+
+  width: 18px;
+  height: 18px;
+
+  border-radius: 50%;
+  text-align: center;
+
+  font-size: ${theme.fontSizes.xs};
+  font-weight: "500";
+
+  background-color: ${theme.colors.orange};
+  color: #ffffff;
+
+  line-height: 1.5;
+`;
