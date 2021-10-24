@@ -1,18 +1,17 @@
-import { useState } from "react";
-
+import { useOutsideClick } from "hooks";
 import * as S from "./Basket.styled";
 
 const Basket = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const { ref, isShown, setIsShown } = useOutsideClick();
 
   const toggleOpenHandler = () => {
-    setIsOpen((prev) => !prev);
+    setIsShown((prev) => !prev);
   };
 
   return (
-    <S.Wrapper>
+    <S.Wrapper ref={ref}>
       <S.Anchor onClick={toggleOpenHandler}>Sepetim</S.Anchor>
-      {isOpen && <S.Menu />}
+      {isShown && <S.Menu />}
     </S.Wrapper>
   );
 };
