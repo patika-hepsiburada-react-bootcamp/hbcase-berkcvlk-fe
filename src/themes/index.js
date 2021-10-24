@@ -15,6 +15,9 @@ export default {
     gray600: "#9b9b9b",
     gray700: "#646464",
   },
+  fonts: {
+    default: "'Roboto', sans-serif",
+  },
   fontSizes: {
     xs: "12px",
     sm: "14px",
