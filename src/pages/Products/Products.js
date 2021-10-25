@@ -1,4 +1,4 @@
-import { Header, Sidebar, ProductList } from "components";
+import { Header, Sidebar, ProductList, Pagination } from "components";
 import * as S from "./Products.styled";
 
 const Products = () => {
@@ -9,6 +9,7 @@ const Products = () => {
         <Sidebar />
         <S.Main>
           <ProductList />
+          <Pagination />
         </S.Main>
       </S.Container>
     </>
