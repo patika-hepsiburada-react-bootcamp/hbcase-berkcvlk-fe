@@ -4,14 +4,27 @@ import theme from "themes";
 
 export const Card = styled.div`
   height: 475px;
+  border: 1px solid #ffffff;
+
+  ${(p) =>
+    p.isMouseEntered &&
+    `
+    border: 1px solid ${theme.colors.gray200};
+    border-radius: 6px;
+  `}
 `;
 
 export const ImageContainer = styled.div`
   text-align: center;
+
+  margin: -1px -1px 0;
   padding: 4px 0;
   height: 340px;
-  border: 1px solid ${theme.colors.gray200};
+
   border-radius: 6px;
+  border: 1px solid ${theme.colors.gray200};
+
+  ${(p) => p.isMouseEntered && `border-color: transparent;`}
 `;
 
 export const Image = styled.img`
@@ -86,4 +99,28 @@ export const Discount = styled.span`
   font-weight: 500;
   color: ${theme.colors.red200};
   margin-left: 4px;
+`;
+
+export const AddToBasketButton = styled.button`
+  width: 100%;
+  height: 32px;
+
+  font-size: ${theme.fontSizes.sm};
+  font-weight: 500;
+
+  background-color: ${theme.colors.lightOrange};
+  color: ${theme.colors.orange};
+
+  border-radius: 8px;
+  margin-top: 32px;
+
+  &:disabled {
+    color: ${theme.colors.gray500};
+    background-color: ${theme.colors.gray300};
+    pointer-events: none;
+  }
+
+  &:active {
+    filter: brightness(0.98);
+  }
 `;
