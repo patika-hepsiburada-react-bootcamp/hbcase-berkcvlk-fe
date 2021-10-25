@@ -8,13 +8,13 @@ const Basket = () => {
   const [hasItems, setHasItems] = useState(true);
   const { ref, isShown, setIsShown } = useOutsideClick();
 
-  const toggleOpenHandler = () => {
+  const toggleShownHandler = () => {
     setIsShown((prev) => !prev);
   };
 
   return (
     <S.Wrapper ref={ref}>
-      <S.Anchor onClick={toggleOpenHandler}>Sepetim</S.Anchor>
+      <S.Anchor onClick={toggleShownHandler}>Sepetim</S.Anchor>
       {isShown && (
         <S.Menu>
           <BasketItem />
