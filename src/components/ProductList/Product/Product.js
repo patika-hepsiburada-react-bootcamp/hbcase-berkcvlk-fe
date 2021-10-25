@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import * as S from "./Product.styled.js";
+import * as S from "./Product.styled";
 
 const Product = () => {
   const [isMouseEntered, setIsMouseEntered] = useState(false);
