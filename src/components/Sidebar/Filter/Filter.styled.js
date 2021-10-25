@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 import theme from "themes";
 
 export const Filter = styled.div`
@@ -18,6 +19,7 @@ export const Title = styled.h4`
 export const FilterItem = styled.p`
   font-size: ${theme.fontSizes.sm};
   font-weight: 500;
+  width: fit-content;
 
   color: ${theme.colors.gray700};
   margin: 0;
@@ -25,7 +27,7 @@ export const FilterItem = styled.p`
   cursor: pointer;
 
   & + & {
-    margin-top: 6px;
+    margin-top: 10px;
   }
 
   &:hover {
