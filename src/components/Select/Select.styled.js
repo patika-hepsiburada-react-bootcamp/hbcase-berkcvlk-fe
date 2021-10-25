@@ -48,7 +48,7 @@ export const SelectItem = styled.div`
 
   font-size: ${theme.fontSizes.rg};
   font-weight: 500;
-  color: ${theme.colors.text};
+  color: ${theme.colors.gray500};
 
   cursor: pointer;
 
