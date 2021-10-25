@@ -2,6 +2,10 @@ import styled from "styled-components";
 import themes from "themes";
 
 export const SubHeader = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
   max-width: 1280px;
   margin: 0 auto;
 

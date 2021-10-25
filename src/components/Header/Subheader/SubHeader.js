@@ -1,3 +1,4 @@
+import { Select } from "components";
 import * as S from "./SubHeader.styled";
 
 const SubHeader = () => {
@@ -10,6 +11,7 @@ const SubHeader = () => {
           <S.SearchedKey>iphone 11</S.SearchedKey>
         </S.PageSubTitle>
       </S.PageInformations>
+      <Select />
     </S.SubHeader>
   );
 };
