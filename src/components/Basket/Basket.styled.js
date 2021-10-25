@@ -34,6 +34,7 @@ export const Menu = styled.div`
   border-radius: 4px 0 4px 4px;
 
   background-color: #ffffff;
+  z-index: 1;
 
   &::before {
     content: "";
