@@ -1,20 +1,23 @@
 import { useState } from "react";
 
 import BasketItem from "./BasketItem/BasketItem";
-import { useOutsideClick } from "hooks";
 import * as S from "./Basket.styled";
 
 const Basket = () => {
   const [hasItems, setHasItems] = useState(true);
-  const { ref, isShown, setIsShown } = useOutsideClick();
+  const [isShown, setIsShown] = useState(false);
 
-  const toggleShownHandler = () => {
-    setIsShown((prev) => !prev);
+  const showMenuHandler = () => {
+    setIsShown(true);
+  };
+
+  const hideMenuHandler = () => {
+    setIsShown(false);
   };
 
   return (
-    <S.Wrapper ref={ref}>
-      <S.Anchor onClick={toggleShownHandler}>Sepetim</S.Anchor>
+    <S.Wrapper onMouseEnter={showMenuHandler} onMouseLeave={hideMenuHandler}>
+      <S.Anchor>Sepetim</S.Anchor>
       {isShown && (
         <S.Menu>
           <BasketItem />
