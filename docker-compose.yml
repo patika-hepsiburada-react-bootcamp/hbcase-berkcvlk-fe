@@ -1,0 +1,12 @@
+version: "3.7"
+services:
+  hbcase-frontend:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./:/app
+    environment:
+      - NODE_SERVER_URL=http://localhost:8080
+      # To watch changes
+      - CHOKIDAR_USEPOLLING=true
