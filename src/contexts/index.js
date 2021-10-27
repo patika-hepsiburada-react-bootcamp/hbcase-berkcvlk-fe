@@ -1,11 +1,17 @@
 import ProductsProvider from "./products";
+import QueriesProvider from "./queries";
+import PaginationProvider from "./pagination";
 import FiltersProvider from "./filters";
 
 const ContextProviders = ({ children }) => {
   return (
-    <ProductsProvider>
-      <FiltersProvider>{children}</FiltersProvider>
-    </ProductsProvider>
+    <QueriesProvider>
+      <PaginationProvider>
+        <FiltersProvider>
+          <ProductsProvider>{children}</ProductsProvider>
+        </FiltersProvider>
+      </PaginationProvider>
+    </QueriesProvider>
   );
 };
 
