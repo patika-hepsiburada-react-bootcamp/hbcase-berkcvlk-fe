@@ -1,12 +1,21 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
 /**
  * Context for filters on the page
  */
-const FiltersContext = createContext(null);
+export const FiltersContext = createContext(null);
 
 const Provider = ({ children }) => {
-  return <FiltersContext.Provider>{children}</FiltersContext.Provider>;
+  const [filters, setFilters] = useState([]);
+  const [orderActive, setOrderActive] = useState("");
+
+  return (
+    <FiltersContext.Provider
+      value={{ filters, setFilters, orderActive, setOrderActive }}
+    >
+      {children}
+    </FiltersContext.Provider>
+  );
 };
 
 export default Provider;
