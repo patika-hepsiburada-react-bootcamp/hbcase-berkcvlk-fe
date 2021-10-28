@@ -2,8 +2,9 @@ import { useState } from "react";
 
 import * as S from "./Product.styled";
 
-const Product = () => {
+const Product = ({ product }) => {
   const [isMouseEntered, setIsMouseEntered] = useState(false);
+  const { brand, color, discountRate, title, price, image } = product;
 
   const mouseHoverRenderer = () => {
     if (isMouseEntered) {
@@ -15,17 +16,17 @@ const Product = () => {
         <S.Details>
           <S.Detail>
             <S.DetailTitle>Marka:</S.DetailTitle>
-            <S.DetailDesc>Apple</S.DetailDesc>
+            <S.DetailDesc>{brand.text}</S.DetailDesc>
           </S.Detail>
           <S.Detail>
             <S.DetailTitle>Renk:</S.DetailTitle>
-            <S.DetailDesc>Kırmızı</S.DetailDesc>
+            <S.DetailDesc>{color.text}</S.DetailDesc>
           </S.Detail>
         </S.Details>
-        <S.Price>90,85 TL</S.Price>
+        <S.Price>{(price * ((100 - discountRate) / 100)).toFixed(2)} TL</S.Price>
         <S.PreviousPriceTag>
-          <S.OldPrice>124,00 TL</S.OldPrice>
-          <S.Discount>12%</S.Discount>
+          <S.OldPrice>{price.toFixed(2)} TL</S.OldPrice>
+          <S.Discount>{discountRate}%</S.Discount>
         </S.PreviousPriceTag>
       </>
     );
@@ -38,13 +39,10 @@ const Product = () => {
       onMouseLeave={() => setIsMouseEntered(false)}
     >
       <S.ImageContainer isMouseEntered={isMouseEntered}>
-        <S.Image src="assets/images/prod1.png" alt="Iphone 11" />
+        <S.Image src={image} />
       </S.ImageContainer>
       <S.Body>
-        <S.Title>
-          Apple Iphone 11 Pro Maxi Phone 11 Kırmızı Kılıf, Max Pro 11, Distribütör
-          Garantili Cep Telefonu
-        </S.Title>
+        <S.Title>{title}</S.Title>
         {mouseHoverRenderer()}
       </S.Body>
     </S.Card>
