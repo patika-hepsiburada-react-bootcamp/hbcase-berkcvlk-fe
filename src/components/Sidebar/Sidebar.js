@@ -4,7 +4,7 @@ import * as S from "./Sidebar.styled";
 
 const Sidebar = () => {
   const { filters } = useFilters();
-  const { color, order, brand } = useQueries();
+  const { color, order, brand, resetFilters } = useQueries();
 
   return (
     <S.Sidebar>
@@ -15,6 +15,11 @@ const Sidebar = () => {
           activeStates={[color, order, brand][index]}
         />
       ))}
+      {[color, brand, order].join("").trim() && (
+        <S.RemoveAllFilters onClick={resetFilters}>
+          Hepsini Kaldır
+        </S.RemoveAllFilters>
+      )}
     </S.Sidebar>
   );
 };
