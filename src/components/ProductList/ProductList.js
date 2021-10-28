@@ -6,6 +6,10 @@ import * as S from "./ProductList.styled";
 const ProductList = () => {
   const { productList } = useProducts();
 
+  if (!productList.length) {
+    return <S.NoItemFound>Ürün bulunamadı!</S.NoItemFound>;
+  }
+
   return (
     <S.List>
       {productList.map((product, index) => (
