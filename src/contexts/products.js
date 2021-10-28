@@ -9,7 +9,6 @@ import axios from "api/client";
 export const ProductContext = createContext(null);
 
 const Provider = ({ children }) => {
-  console.log("render");
   /**
    * API Response contains:
    * => currentPage
@@ -35,17 +34,14 @@ const Provider = ({ children }) => {
    */
   const {
     query: { filter, search },
+    order,
   } = useQueries();
 
   useEffect(() => {
     const getProducts = async () => {
       try {
         const { data } = await axios.get("", {
-          params: {
-            page: page,
-            filter: filter,
-            search: search,
-          },
+          params: { page, filter, search, order },
         });
 
         /**
@@ -64,7 +60,7 @@ const Provider = ({ children }) => {
     };
 
     getProducts();
-  }, []);
+  }, [page, filter, search, order]);
 
   return (
     <ProductContext.Provider value={{ productList }}>
