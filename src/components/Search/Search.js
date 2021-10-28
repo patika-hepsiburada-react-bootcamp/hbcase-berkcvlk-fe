@@ -8,7 +8,7 @@ const Search = () => {
   const { setSearch } = useQueries();
 
   useEffect(() => {
-    if (!localSearch || localSearch.length < 2) {
+    if (!localSearch || localSearch.length <= 2) {
       return;
     }
 
