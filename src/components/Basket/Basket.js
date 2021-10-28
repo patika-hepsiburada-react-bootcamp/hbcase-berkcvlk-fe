@@ -23,7 +23,11 @@ const Basket = () => {
         <S.Menu>
           {basketItems.length
             ? basketItems.map((item) => (
-                <BasketItem key={item.productId} item={item} />
+                <BasketItem
+                  key={item.productId}
+                  item={item}
+                  hideMenu={hideMenuHandler}
+                />
               ))
             : "Sepetinizde ürün bulunmamaktadır!"}
         </S.Menu>

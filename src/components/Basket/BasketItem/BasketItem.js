@@ -1,9 +1,14 @@
-import { useBasket } from "hooks";
+import { useModal } from "hooks";
 import * as S from "./BasketItem.styled";
 
-const BasketItem = ({ item }) => {
-  const { removeItem } = useBasket();
+const BasketItem = ({ item, hideMenu }) => {
+  const { showModal } = useModal();
   const { productId, image, title } = item;
+
+  const removeHandler = () => {
+    hideMenu();
+    showModal(productId);
+  };
 
   return (
     <S.BasketItem>
@@ -12,7 +17,7 @@ const BasketItem = ({ item }) => {
       </S.ImageContainer>
       <S.Details>
         <S.Title>{title}</S.Title>
-        <S.RemoveButton onClick={() => removeItem(productId)}>Kaldır</S.RemoveButton>
+        <S.RemoveButton onClick={removeHandler}>Kaldır</S.RemoveButton>
       </S.Details>
     </S.BasketItem>
   );
