@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useCallback } from "react";
 
 /**
  * Context to get, set filters, provide them
@@ -10,9 +10,9 @@ const Provider = ({ children }) => {
   const [productPerPage, setProductPerPage] = useState(1);
   const [totalProductCount, setTotalProductCount] = useState(1);
 
-  const calculatePageCount = () => {
+  const calculatePageCount = useCallback(() => {
     return Math.ceil(totalProductCount / productPerPage);
-  };
+  }, [totalProductCount, productPerPage]);
 
   return (
     <PaginationContext.Provider
@@ -20,8 +20,8 @@ const Provider = ({ children }) => {
         setPage,
         setTotalProductCount,
         setProductPerPage,
+        page,
         pageCount: calculatePageCount(),
-        currentPage: page,
       }}
     >
       {children}
