@@ -5,14 +5,12 @@ const Filter = ({ filter, activeStates }) => {
   const { setOrder, toggleVariant } = useQueries();
   const { title, type, items, multipleChoice } = filter;
 
-  console.log(activeStates);
-
   const clickHandler = (value) => {
-    if (!multipleChoice) {
-      return setOrder(value);
+    if (multipleChoice) {
+      return toggleVariant(type, value);
     }
 
-    toggleVariant(type, value);
+    setOrder(value);
   };
 
   return (
