@@ -32,7 +32,15 @@ export const Details = styled.div`
 `;
 
 export const Title = styled.h4`
-  max-height: 32px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  height: 34px;
+  width: 100%;
   font-size: ${theme.fontSizes.xs};
   font-weight: 400;
   line-height: 18px;

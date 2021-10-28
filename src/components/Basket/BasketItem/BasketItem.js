@@ -1,14 +1,18 @@
+import { useBasket } from "hooks";
 import * as S from "./BasketItem.styled";
 
-const BasketItem = () => {
+const BasketItem = ({ item }) => {
+  const { removeItem } = useBasket();
+  const { productId, image, title } = item;
+
   return (
     <S.BasketItem>
       <S.ImageContainer>
-        <S.Image src="assets/images/prod1.png" alt="Apple - Iphone 11" />
+        <S.Image src={image} alt={title} />
       </S.ImageContainer>
       <S.Details>
-        <S.Title>Iphone 11 Kırmızı Kılıflı Garantili Cep Telefonu</S.Title>
-        <S.RemoveButton>Kaldır</S.RemoveButton>
+        <S.Title>{title}</S.Title>
+        <S.RemoveButton onClick={() => removeItem(productId)}>Kaldır</S.RemoveButton>
       </S.Details>
     </S.BasketItem>
   );
