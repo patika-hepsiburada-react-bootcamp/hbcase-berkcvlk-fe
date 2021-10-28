@@ -34,3 +34,10 @@ export const SearchedKey = styled.span`
   color: ${themes.colors.black};
   margin-left: 2px;
 `;
+
+export const DeleteSearch = styled.span`
+  color: ${themes.colors.red200};
+  margin-left: 4px;
+
+  cursor: pointer;
+`;
