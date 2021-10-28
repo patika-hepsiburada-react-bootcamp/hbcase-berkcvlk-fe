@@ -3,12 +3,14 @@ import { Select } from "components";
 import * as S from "./SubHeader.styled";
 
 const SubHeader = () => {
-  const { search, setSearch } = useQueries();
+  const { search, brand, setSearch } = useQueries();
 
   return (
     <S.SubHeader>
       <S.PageInformations>
-        <S.PageTitle>Cep telefonu arama</S.PageTitle>
+        <S.PageTitle>{`${
+          brand && brand.map((b) => b[0].toUpperCase() + b.substring(1)).join(", ")
+        } Cep Telefonu`}</S.PageTitle>
         {search && (
           <S.PageSubTitle>
             Aranan kelime:
