@@ -1,11 +1,18 @@
-import { useOutsideClick } from "hooks";
+import { useOutsideClick, useFilters, useQueries } from "hooks";
 import * as S from "./Select.styled";
 
 const Select = () => {
+  const { filters } = useFilters();
+  const { order, setOrder } = useQueries();
   const { ref, isShown, setIsShown } = useOutsideClick();
 
   const toggleShownHandler = () => {
     setIsShown((prev) => !prev);
+  };
+
+  const itemClickHandler = (value) => {
+    setOrder(value);
+    toggleShownHandler();
   };
 
   return (
@@ -16,10 +23,15 @@ const Select = () => {
       </S.Anchor>
       {isShown && (
         <S.Menu>
-          <S.SelectItem isActive>En Düşük Fiyat</S.SelectItem>
-          <S.SelectItem>En Yüksek Fiyat</S.SelectItem>
-          <S.SelectItem>En Yeniler (AZ)</S.SelectItem>
-          <S.SelectItem>En Yeniler (ZA)</S.SelectItem>
+          {filters[1].items.map((item, index) => (
+            <S.SelectItem
+              key={index}
+              onClick={() => itemClickHandler(item.value)}
+              isActive={item.value === order}
+            >
+              {item.text}
+            </S.SelectItem>
+          ))}
         </S.Menu>
       )}
     </S.Wrapper>
