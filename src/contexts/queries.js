@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useCallback, useState } from "react";
 
 /**
  * Context to get, set query, provide them
@@ -11,37 +11,58 @@ const Provider = ({ children }) => {
   const [order, setOrder] = useState("");
   const [search, setSearch] = useState("");
 
-  const stringifyFilter = () => {
-    return "brand:apple,huawei;color:kirmizi";
-  };
+  /**
+   * Stringify filter for api call
+   * @return stringified filter
+   * @example brand:apple,huawei;color:kirmizi
+   */
+  const stringifyFilter = useCallback(() => {
+    return [
+      { value: brand, token: "brand" },
+      { value: color, token: "color" },
+    ].reduce((query, variant) => {
+      if (!variant.value.length) {
+        return query;
+      }
 
-  const toggleBrand = (brandValue) => {
-    if (brand.includes(brandValue)) {
-      return setBrand((prev) => prev.filter((br) => br !== brand));
+      // Check any variant added, if it's then add ; to separate them
+      if (query && variant.value.length) {
+        query += ";";
+      }
+
+      return query + `${variant.token}:${variant.value.join(",")}`;
+    }, "");
+  }, [brand, color]);
+
+  /**
+   * Toggle variant that can be array
+   * @param {string} token color || brand
+   * @param {string} value Value that will be use in filter
+   */
+  const toggleVariant = (token, value) => {
+    const variants = {
+      color: { set: setColor, val: color },
+      brand: { set: setBrand, val: brand },
+    };
+
+    // If variant already in the array remove it
+    if (variants[token].val.includes(value)) {
+      return variants[token].set((prev) => prev.filter((val) => val !== value));
     }
 
-    setBrand((prev) => [...prev, brandValue]);
-  };
-
-  const toggleColor = (colorValue) => {
-    if (color.includes(colorValue)) {
-      return setColor((prev) => prev.filter((clr) => clr !== colorValue));
-    }
-
-    setColor((prev) => [...prev, colorValue]);
+    variants[token].set((prev) => [...prev, value]);
   };
 
   return (
     <QueriesContext.Provider
       value={{
         brand,
-        toggleBrand,
         color,
-        toggleColor,
         order,
-        setOrder,
         search,
+        setOrder,
         setSearch,
+        toggleVariant,
         query: {
           filter: stringifyFilter(),
           search: search,
