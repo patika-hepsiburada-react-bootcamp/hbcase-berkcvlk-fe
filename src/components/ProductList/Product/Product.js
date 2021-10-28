@@ -1,14 +1,20 @@
 import { useState } from "react";
 
+import { useBasket } from "hooks";
 import * as S from "./Product.styled";
 
-const Product = ({ product }) => {
+const Product = ({ product, isAddedBasket }) => {
   const [isMouseEntered, setIsMouseEntered] = useState(false);
-  const { brand, color, discountRate, title, price, image } = product;
+  const { brand, color, discountRate, title, price, image, id } = product;
+  const { addItem } = useBasket();
 
   const mouseHoverRenderer = () => {
     if (isMouseEntered) {
-      return <S.AddToBasketButton>Sepete Ekle</S.AddToBasketButton>;
+      return (
+        <S.AddToBasketButton disabled={isAddedBasket} onClick={() => addItem(id)}>
+          {isAddedBasket ? "Bu ürünü sepete ekleyemezsiniz!" : "Sepete Ekle"}
+        </S.AddToBasketButton>
+      );
     }
 
     return (
