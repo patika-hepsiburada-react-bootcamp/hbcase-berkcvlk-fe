@@ -24,6 +24,7 @@ export const PaginateButton = styled.div`
   color: ${theme.colors.gray700};
 
   cursor: pointer;
+  user-select: none;
 
   ${(p) =>
     p.isActive &&

@@ -1,15 +1,59 @@
+import { usePagination } from "hooks";
 import * as S from "./Pagination.styled";
 
 const Pagination = () => {
+  const { page, setPage, pageCount, totalProductCount, productPerPage } =
+    usePagination();
+
+  /**
+   * Filter changes can make total page number
+   * smaller than current page. When this happen set page to the first
+   */
+  if (page > pageCount) {
+    setPage(1);
+  }
+
+  /**
+   * No need for pagination when total item count smaller than product
+   * per page
+   */
+  if (productPerPage >= totalProductCount) {
+    return null;
+  }
+
+  const previousPageHandler = () => {
+    if (page === 1) {
+      return;
+    }
+
+    setPage((prev) => prev - 1);
+  };
+
+  const nextPageHandler = () => {
+    if (page === pageCount) {
+      return;
+    }
+
+    setPage((prev) => prev + 1);
+  };
+
   return (
     <S.Pagination>
-      <S.PaginateButton>{"<"}</S.PaginateButton>
+      <S.PaginateButton onClick={previousPageHandler}>{"<"}</S.PaginateButton>
       <S.Pages>
-        <S.PaginateButton isActive>1</S.PaginateButton>
-        <S.PaginateButton>2</S.PaginateButton>
-        <S.PaginateButton>3</S.PaginateButton>
+        {pageCount
+          ? [...Array(pageCount)].map((_, index) => (
+              <S.PaginateButton
+                key={index}
+                onClick={() => setPage(index + 1)}
+                isActive={page === index + 1}
+              >
+                {index + 1}
+              </S.PaginateButton>
+            ))
+          : null}
       </S.Pages>
-      <S.PaginateButton>{">"}</S.PaginateButton>
+      <S.PaginateButton onClick={nextPageHandler}>{">"}</S.PaginateButton>
     </S.Pagination>
   );
 };
