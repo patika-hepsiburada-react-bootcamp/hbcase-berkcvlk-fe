@@ -1,15 +1,16 @@
 import Product from "./Product/Product";
+
+import { useProducts } from "hooks";
 import * as S from "./ProductList.styled";
 
 const ProductList = () => {
+  const { productList } = useProducts();
+
   return (
     <S.List>
-      <Product />
-      <Product />
-      <Product />
-      <Product />
-      <Product />
-      <Product />
+      {productList.map((product, index) => (
+        <Product key={index} product={product} />
+      ))}
     </S.List>
   );
 };
