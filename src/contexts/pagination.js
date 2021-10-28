@@ -7,8 +7,8 @@ export const PaginationContext = createContext(null);
 
 const Provider = ({ children }) => {
   const [page, setPage] = useState(1);
-  const [productPerPage, setProductPerPage] = useState(1);
-  const [totalProductCount, setTotalProductCount] = useState(1);
+  const [productPerPage, setProductPerPage] = useState();
+  const [totalProductCount, setTotalProductCount] = useState();
 
   const calculatePageCount = useCallback(() => {
     return Math.ceil(totalProductCount / productPerPage);
@@ -20,6 +20,8 @@ const Provider = ({ children }) => {
         setPage,
         setTotalProductCount,
         setProductPerPage,
+        totalProductCount,
+        productPerPage,
         page,
         pageCount: calculatePageCount(),
       }}
