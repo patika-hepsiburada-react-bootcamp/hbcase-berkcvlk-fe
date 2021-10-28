@@ -53,6 +53,15 @@ const Provider = ({ children }) => {
     variants[token].set((prev) => [...prev, value]);
   };
 
+  /**
+   * Reset all filters
+   */
+  const resetFilters = () => {
+    setBrand([]);
+    setColor([]);
+    setOrder("");
+  };
+
   return (
     <QueriesContext.Provider
       value={{
@@ -62,6 +71,7 @@ const Provider = ({ children }) => {
         search,
         setOrder,
         setSearch,
+        resetFilters,
         toggleVariant,
         query: {
           filter: stringifyFilter(),
