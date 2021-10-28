@@ -3,6 +3,7 @@ import QueriesProvider from "./queries";
 import PaginationProvider from "./pagination";
 import FiltersProvider from "./filters";
 import BasketProvider from "./basket";
+import ModalContext from "./modal";
 
 const ContextProviders = ({ children }) => {
   return (
@@ -10,7 +11,9 @@ const ContextProviders = ({ children }) => {
       <PaginationProvider>
         <FiltersProvider>
           <BasketProvider>
-            <ProductsProvider>{children}</ProductsProvider>
+            <ModalContext>
+              <ProductsProvider>{children}</ProductsProvider>
+            </ModalContext>
           </BasketProvider>
         </FiltersProvider>
       </PaginationProvider>

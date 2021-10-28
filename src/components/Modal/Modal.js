@@ -1,19 +1,25 @@
 import { createPortal } from "react-dom";
-import { useEffect } from "react";
 
+import { useBasket, useModal } from "hooks";
 import * as S from "./Modal.styled";
 
 const Modal = () => {
-  useEffect(() => {
-    document.body.style.overflow = "hidden";
+  const { isOpen, hideModal, productId } = useModal();
+  const { removeItem } = useBasket();
 
-    return () => (document.body.style.overflow = "unset");
-  }, []);
+  if (!isOpen) {
+    return null;
+  }
+
+  const handleSuccessClick = () => {
+    removeItem(productId);
+    hideModal();
+  };
 
   const modalRenderer = () => {
     return (
       <S.Wrapper>
-        <S.Backdrop />
+        <S.Backdrop onClick={hideModal} />
         <S.Modal>
           <S.Header>
             <S.Title>Ürünü silmek istediğinize emin misiniz?</S.Title>
@@ -28,8 +34,12 @@ const Modal = () => {
               remaining essentiall....
             </S.Text>
             <S.Buttons>
-              <S.Button variant="success">Evet</S.Button>
-              <S.Button variant="error">Hayır</S.Button>
+              <S.Button variant="success" onClick={handleSuccessClick}>
+                Evet
+              </S.Button>
+              <S.Button variant="error" onClick={hideModal}>
+                Hayır
+              </S.Button>
             </S.Buttons>
           </S.Body>
         </S.Modal>
