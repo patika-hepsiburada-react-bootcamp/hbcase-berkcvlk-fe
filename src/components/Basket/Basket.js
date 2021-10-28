@@ -1,11 +1,12 @@
 import { useState } from "react";
 
+import { useBasket } from "hooks";
 import BasketItem from "./BasketItem/BasketItem";
 import * as S from "./Basket.styled";
 
 const Basket = () => {
-  const [hasItems, setHasItems] = useState(true);
   const [isShown, setIsShown] = useState(false);
+  const { basketItems } = useBasket();
 
   const showMenuHandler = () => {
     setIsShown(true);
@@ -20,11 +21,16 @@ const Basket = () => {
       <S.Anchor>Sepetim</S.Anchor>
       {isShown && (
         <S.Menu>
-          <BasketItem />
-          <BasketItem />
+          {basketItems.length
+            ? basketItems.map((item) => (
+                <BasketItem key={item.productId} item={item} />
+              ))
+            : "Sepetinizde ürün bulunmamaktadır!"}
         </S.Menu>
       )}
-      {hasItems && <S.NotifyBubble>4</S.NotifyBubble>}
+      {basketItems.length ? (
+        <S.NotifyBubble>{basketItems.length}</S.NotifyBubble>
+      ) : null}
     </S.Wrapper>
   );
 };
