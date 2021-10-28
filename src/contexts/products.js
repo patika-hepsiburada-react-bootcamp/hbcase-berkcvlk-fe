@@ -18,6 +18,7 @@ const Provider = ({ children }) => {
    * => filters
    */
   const [productList, setProductList] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   /**
    * Pagination Context states' setters
@@ -38,6 +39,7 @@ const Provider = ({ children }) => {
   } = useQueries();
 
   useEffect(() => {
+    setIsLoading(true);
     const getProducts = async () => {
       try {
         const { data } = await axios.get("", {
@@ -56,6 +58,8 @@ const Provider = ({ children }) => {
         setFilters(filters);
       } catch (err) {
         console.log(err);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -63,7 +67,7 @@ const Provider = ({ children }) => {
   }, [page, filter, search, order]);
 
   return (
-    <ProductContext.Provider value={{ productList }}>
+    <ProductContext.Provider value={{ productList, isLoading }}>
       {children}
     </ProductContext.Provider>
   );
