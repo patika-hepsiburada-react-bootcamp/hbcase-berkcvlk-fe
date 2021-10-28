@@ -1,13 +1,33 @@
+import { useQueries } from "hooks";
 import * as S from "./Filter.styled";
 
-const Filter = () => {
+const Filter = ({ filter, activeStates }) => {
+  const { setOrder, toggleVariant } = useQueries();
+  const { title, type, items, multipleChoice } = filter;
+
+  console.log(activeStates);
+
+  const clickHandler = (value) => {
+    if (!multipleChoice) {
+      return setOrder(value);
+    }
+
+    toggleVariant(type, value);
+  };
+
   return (
     <S.Filter>
-      <S.Title>Renk</S.Title>
-      <S.FilterItem isActive>Mavi(3)</S.FilterItem>
-      <S.FilterItem>Siyah(3)</S.FilterItem>
-      <S.FilterItem>Sarı(3)</S.FilterItem>
-      <S.FilterItem>Beyaz(3)</S.FilterItem>
+      <S.Title>{title}</S.Title>
+      {items.map((item, index) => (
+        <S.FilterItem
+          key={index}
+          onClick={() => clickHandler(item.value)}
+          isActive={activeStates && activeStates.includes(item.value)}
+        >
+          {item.text}
+          {item.count > 0 && <S.FilterCount>({item.count})</S.FilterCount>}
+        </S.FilterItem>
+      ))}
     </S.Filter>
   );
 };

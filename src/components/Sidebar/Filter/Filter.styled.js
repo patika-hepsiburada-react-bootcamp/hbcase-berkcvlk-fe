@@ -36,3 +36,7 @@ export const FilterItem = styled.p`
 
   ${(p) => p.isActive && `color: ${theme.colors.orange};`}
 `;
+
+export const FilterCount = styled.span`
+  margin-left: 4px;
+`;
