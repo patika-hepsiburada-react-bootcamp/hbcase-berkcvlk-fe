@@ -3,7 +3,7 @@ import userEvent from "@testing-library/user-event";
 
 import Sidebar from "./Sidebar";
 import { QueriesContext } from "contexts/queries";
-import { FiltersContext } from "contexts/filters";
+import { FiltersContext } from "contexts/filters/filters";
 
 describe("Sidebar tests", () => {
   const color = ["kirmizi"];

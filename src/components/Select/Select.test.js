@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import Select from "./Select";
-import { FiltersContext } from "contexts/filters";
+import { FiltersContext } from "contexts/filters/filters";
 import { QueriesContext } from "contexts/queries";
 
 describe("Select tests", () => {

@@ -3,7 +3,7 @@ import userEvent from "@testing-library/user-event";
 
 import SubHeader from "./SubHeader";
 import { QueriesContext } from "contexts/queries";
-import { FiltersContext } from "contexts/filters";
+import { FiltersContext } from "contexts/filters/filters";
 
 describe("Subheader tests", () => {
   let search = "apple",
