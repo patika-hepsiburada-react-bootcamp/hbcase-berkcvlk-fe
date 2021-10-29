@@ -19,7 +19,7 @@ const Modal = () => {
   const modalRenderer = () => {
     return (
       <S.Wrapper>
-        <S.Backdrop onClick={hideModal} />
+        <S.Backdrop data-testid="backdrop" onClick={hideModal} />
         <S.Modal>
           <S.Header>
             <S.Title>Ürünü silmek istediğinize emin misiniz?</S.Title>
