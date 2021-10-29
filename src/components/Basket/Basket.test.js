@@ -32,9 +32,9 @@ describe("Basket tests", () => {
   test("hover over the anchor should open the basket menu", () => {
     userEvent.hover(anchor);
 
-    const basketItems = screen.getAllByText("Basket Item");
+    const items = screen.getAllByText("Basket Item");
 
-    expect(basketItems).toHaveLength(2);
+    expect(items).toHaveLength(basketItems.length);
   });
 
   test("notify bubble should be in document, and contains items length", () => {
