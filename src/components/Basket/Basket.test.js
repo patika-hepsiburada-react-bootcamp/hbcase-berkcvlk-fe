@@ -46,17 +46,26 @@ describe("Basket tests", () => {
 
 // Avoid before each rendering
 describe("", () => {
-  test("if there is no basket item text should be in the document", () => {
+  let basketItems = [];
+
+  beforeEach(() => {
     render(
-      <BasketContext.Provider value={{ basketItems: [] }}>
+      <BasketContext.Provider value={{ basketItems }}>
         <Basket />
       </BasketContext.Provider>
     );
+  });
 
+  test("if there is no basket item no item text should be in the document", () => {
     const anchor = screen.getByText("Sepetim");
     userEvent.hover(anchor);
 
     const noItem = screen.getByText("Sepetinizde ürün bulunmamaktadır!");
     expect(noItem).toBeInTheDocument();
+  });
+
+  test("if there is no basket item bubble should not be in the document", () => {
+    const bubble = screen.queryByText(basketItems.length);
+    expect(bubble).toBeNull();
   });
 });
