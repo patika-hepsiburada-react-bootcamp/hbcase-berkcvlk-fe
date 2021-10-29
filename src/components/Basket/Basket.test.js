@@ -36,21 +36,27 @@ describe("Basket tests", () => {
 
     expect(basketItems).toHaveLength(2);
   });
+
+  test("notify bubble should be in document, and contains items length", () => {
+    const bubble = screen.getByText(basketItems.length);
+
+    expect(bubble).toBeInTheDocument();
+  });
 });
 
 // Avoid before each rendering
 describe("", () => {
   test("if there is no basket item text should be in the document", () => {
-    const { getByText } = render(
+    render(
       <BasketContext.Provider value={{ basketItems: [] }}>
         <Basket />
       </BasketContext.Provider>
     );
 
-    const anchor = getByText("Sepetim");
+    const anchor = screen.getByText("Sepetim");
     userEvent.hover(anchor);
 
-    const noItem = getByText("Sepetinizde ürün bulunmamaktadır!");
+    const noItem = screen.getByText("Sepetinizde ürün bulunmamaktadır!");
     expect(noItem).toBeInTheDocument();
   });
 });
