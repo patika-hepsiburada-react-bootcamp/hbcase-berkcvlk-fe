@@ -19,7 +19,7 @@ const Product = ({ product, isAddedBasket }) => {
 
     return (
       <>
-        <S.Details>
+        <S.Details data-testid="details">
           <S.Detail>
             <S.DetailTitle>Marka:</S.DetailTitle>
             <S.DetailDesc>{brand.text}</S.DetailDesc>
@@ -45,7 +45,10 @@ const Product = ({ product, isAddedBasket }) => {
       onMouseLeave={() => setIsMouseEntered(false)}
     >
       <S.ImageContainer isMouseEntered={isMouseEntered}>
-        <S.Image src={`${process.env.REACT_APP_API_ENDPOINT}/${image}`} />
+        <S.Image
+          src={`${process.env.REACT_APP_API_ENDPOINT}/${image}`}
+          alt={title}
+        />
       </S.ImageContainer>
       <S.Body>
         <S.Title>{title}</S.Title>
