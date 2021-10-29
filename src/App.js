@@ -1,5 +1,13 @@
+import { Products } from "pages";
+import { Modal } from "components";
+
 const App = () => {
-  return <div>Hepsiburada Case</div>;
+  return (
+    <>
+      <Products />
+      <Modal />
+    </>
+  );
 };
 
 export default App;
