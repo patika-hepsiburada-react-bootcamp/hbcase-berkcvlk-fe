@@ -47,6 +47,7 @@ const Pagination = () => {
                 key={index}
                 onClick={() => setPage(index + 1)}
                 isActive={page === index + 1}
+                data-testid="pageBtn"
               >
                 {index + 1}
               </S.PaginateButton>
