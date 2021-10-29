@@ -1,5 +1,5 @@
 import ProductsProvider from "./products/products";
-import QueriesProvider from "./queries";
+import QueriesProvider from "./queries/queries";
 import PaginationProvider from "./pagination/pagination";
 import FiltersProvider from "./filters/filters";
 import BasketProvider from "./basket/basket";

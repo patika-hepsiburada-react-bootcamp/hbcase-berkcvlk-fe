@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import SubHeader from "./SubHeader";
-import { QueriesContext } from "contexts/queries";
+import { QueriesContext } from "contexts/queries/queries";
 import { FiltersContext } from "contexts/filters/filters";
 
 describe("Subheader tests", () => {

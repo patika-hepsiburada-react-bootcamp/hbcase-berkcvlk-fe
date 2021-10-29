@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import Filter from "./Filter";
-import { QueriesContext } from "contexts/queries";
+import { QueriesContext } from "contexts/queries/queries";
 
 const filter = {
   title: "title",

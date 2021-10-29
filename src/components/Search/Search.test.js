@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import Search from "./Search";
-import { QueriesContext } from "contexts/queries";
+import { QueriesContext } from "contexts/queries/queries";
 
 describe("Search input tests", () => {
   test("should call setter one when type 3 chars", () => {
