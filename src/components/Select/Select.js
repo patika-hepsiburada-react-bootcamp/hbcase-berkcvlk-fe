@@ -25,6 +25,7 @@ const Select = () => {
         <S.Menu>
           {filters[1].items.map((item, index) => (
             <S.SelectItem
+              data-testid="selectItem"
               key={index}
               onClick={() => itemClickHandler(item.value)}
               isActive={item.value === order}
