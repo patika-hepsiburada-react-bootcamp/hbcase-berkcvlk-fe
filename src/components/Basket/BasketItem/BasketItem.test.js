@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import { ModalContext } from "contexts/modal";
+import { ModalContext } from "contexts/modal/modal";
 import BasketItem from "./BasketItem";
 
 describe("Basket Item tests", () => {

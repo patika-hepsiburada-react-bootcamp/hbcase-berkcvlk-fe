@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import Modal from "./Modal";
-import { ModalContext } from "contexts/modal";
+import { ModalContext } from "contexts/modal/modal";
 import { BasketContext } from "contexts/basket/basket";
 
 // Append modal root div for portal
