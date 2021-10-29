@@ -1,4 +1,4 @@
-import ProductsProvider from "./products";
+import ProductsProvider from "./products/products";
 import QueriesProvider from "./queries";
 import PaginationProvider from "./pagination/pagination";
 import FiltersProvider from "./filters/filters";
