@@ -1,6 +1,6 @@
 import { useContext } from "react";
 
-import { BasketContext } from "contexts/basket";
+import { BasketContext } from "contexts/basket/basket";
 
 // To avoid import context and useContext everytime when it's needed
 const useBasket = () => useContext(BasketContext);

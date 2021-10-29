@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import Product from "./Product";
-import { BasketContext } from "contexts/basket";
+import { BasketContext } from "contexts/basket/basket";
 
 const product = {
   id: 1,

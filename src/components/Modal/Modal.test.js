@@ -3,7 +3,7 @@ import userEvent from "@testing-library/user-event";
 
 import Modal from "./Modal";
 import { ModalContext } from "contexts/modal";
-import { BasketContext } from "contexts/basket";
+import { BasketContext } from "contexts/basket/basket";
 
 // Append modal root div for portal
 const root = document.createElement("div");

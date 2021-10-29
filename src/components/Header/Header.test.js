@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 
 import Header from "./Header";
 import { QueriesContext } from "contexts/queries";
-import { BasketContext } from "contexts/basket";
+import { BasketContext } from "contexts/basket/basket";
 import { FiltersContext } from "contexts/filters";
 
 describe("Header tests", () => {

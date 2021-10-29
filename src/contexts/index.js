@@ -2,7 +2,7 @@ import ProductsProvider from "./products";
 import QueriesProvider from "./queries";
 import PaginationProvider from "./pagination";
 import FiltersProvider from "./filters";
-import BasketProvider from "./basket";
+import BasketProvider from "./basket/basket";
 import ModalContext from "./modal";
 
 const ContextProviders = ({ children }) => {

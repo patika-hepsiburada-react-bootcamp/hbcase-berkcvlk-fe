@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 
 import ProductList from "./ProductList";
 import { ProductContext } from "contexts/products";
-import { BasketContext } from "contexts/basket";
+import { BasketContext } from "contexts/basket/basket";
 
 const productList = [
   {
