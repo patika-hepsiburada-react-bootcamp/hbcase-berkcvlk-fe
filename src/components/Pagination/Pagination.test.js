@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import Pagination from "./Pagination";
-import { PaginationContext } from "contexts/pagination";
+import { PaginationContext } from "contexts/pagination/pagination";
 
 describe("Pagination tests", () => {
   let page = 2;
