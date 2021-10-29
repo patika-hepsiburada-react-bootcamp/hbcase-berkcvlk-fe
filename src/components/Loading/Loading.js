@@ -2,7 +2,7 @@ import * as S from "./Loading.styled";
 
 const Loading = () => {
   return (
-    <S.Wrapper>
+    <S.Wrapper data-testid="loading">
       <S.Spinner>
         <S.Bounce />
         <S.Bounce2 />
