@@ -13,7 +13,10 @@ const BasketItem = ({ item, hideMenu }) => {
   return (
     <S.BasketItem>
       <S.ImageContainer>
-        <S.Image src={image} alt={title} />
+        <S.Image
+          src={`${process.env.REACT_APP_API_ENDPOINT}/${image}`}
+          alt={title}
+        />
       </S.ImageContainer>
       <S.Details>
         <S.Title>{title}</S.Title>

@@ -1,5 +1,5 @@
 import { useProducts } from "hooks";
-import { Header, Sidebar, ProductList, Pagination } from "components";
+import { Header, Sidebar, ProductList, Pagination, Loading } from "components";
 import * as S from "./Products.styled";
 
 const Products = () => {
@@ -10,11 +10,13 @@ const Products = () => {
       <Header />
       <S.Container>
         <Sidebar />
-        {!isLoading && (
+        {!isLoading ? (
           <S.Main>
             <ProductList />
             <Pagination />
           </S.Main>
+        ) : (
+          <Loading />
         )}
       </S.Container>
     </>
