@@ -3,7 +3,7 @@ import { render } from "@testing-library/react";
 import BasketProvider, { BasketContext } from "./basket";
 
 describe("Basket Context tests", () => {
-  test("default values", async () => {
+  test("default values", () => {
     let items;
 
     render(
