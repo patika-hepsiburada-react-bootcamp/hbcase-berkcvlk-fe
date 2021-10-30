@@ -40,12 +40,12 @@ describe("Basket tests", () => {
   test("clicking the basket item should close the menu", () => {
     userEvent.hover(anchor);
 
-    const items = screen.getAllByText("Basket Item");
-    userEvent.click(items[0]);
-
     const menu = screen.getByTestId("menu");
 
-    setTimeout(() => expect(menu).not.toBeInTheDocument(), 500);
+    const removeItems = screen.getAllByText("Kaldır");
+    userEvent.click(removeItems[0]);
+
+    expect(menu).not.toBeInTheDocument();
   });
 
   test("notify bubble should be in document, and contains items length", () => {
