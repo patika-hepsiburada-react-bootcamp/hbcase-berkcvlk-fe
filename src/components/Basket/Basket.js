@@ -20,7 +20,7 @@ const Basket = () => {
     <S.Wrapper onMouseEnter={showMenuHandler} onMouseLeave={hideMenuHandler}>
       <S.Anchor>Sepetim</S.Anchor>
       {isShown && (
-        <S.Menu>
+        <S.Menu data-testid="menu">
           {basketItems.length
             ? basketItems.map((item) => (
                 <BasketItem

@@ -37,6 +37,17 @@ describe("Basket tests", () => {
     expect(items).toHaveLength(basketItems.length);
   });
 
+  test("clicking the basket item should close the menu", () => {
+    userEvent.hover(anchor);
+
+    const items = screen.getAllByText("Basket Item");
+    userEvent.click(items[0]);
+
+    const menu = screen.getByTestId("menu");
+
+    setTimeout(() => expect(menu).not.toBeInTheDocument(), 500);
+  });
+
   test("notify bubble should be in document, and contains items length", () => {
     const bubble = screen.getByText(basketItems.length);
 
