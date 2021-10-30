@@ -3,7 +3,7 @@ version: 2
 jobs:
   deploy:
     docker:
-      - image: circleci/node:14.8
+      - image: circleci/node:14
     working_directory: ~/repo
 
     steps:
