@@ -4,6 +4,8 @@
 
 > Proje, study-case çalışmasının frontend bölümünü içermektedir. Gerekli kurulum adımlarını takip ettikten sonra [backend](https://github.com/patika-hepsiburada-react-bootcamp/hbcase-berkcvlk-be) projesinin de kurulumunu yapınız.
 
+[Demoyu görmek için tıklayınız](https://nifty-knuth-903d9d.netlify.app/)
+
 ## Kurulum - Local
 
 Uygulamayı localde çalıştırabilmek için:
