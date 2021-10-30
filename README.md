@@ -34,12 +34,19 @@ cd hbcase-berkcvlk-fe
 
 docker build -t hbcase-frontend-image .
 docker run --name hbcase-frontend-app -d -p 3000:3000 hbcase-frontend-image
+
+// Çalışan container'ı görüntülemek için
+docker ps
 ```
 
 <i>Docker Compose ile</i>
 
 ```
 // Projeyi klonlayıp anadizine gittikten sonra
+
+// Node modules
+yarn install
+
 docker-compose up -d
 ```
 
@@ -48,6 +55,8 @@ Projeyi durdurmak için: `docker-compose down` ya da `docker stop hbcase-fronten
 
 > - Uygulamanın çalışabilmesi için anadizinde `.env` dosyası oluşturup `REACT_APP_API_ENDPOINT` değişkenini oluşturmalısınız.
 > - Oluşturduğunuz değişkene [backend reposundaki](https://github.com/patika-hepsiburada-react-bootcamp/hbcase-berkcvlk-be) kurulum adımlarından hangisini takip ettiyseniz gerekli endpointi giriniz.
+
+Docker'da oluşturulan image'i silmek için `docker image rm -f hbcase-frontend-image`. Eğer docker-compose ile oluşturduysanız `hbcase-berkcvlk-fe-hbcase-frontend-1`
 
 ## Test
 
