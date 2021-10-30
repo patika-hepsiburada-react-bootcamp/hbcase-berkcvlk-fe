@@ -5,8 +5,18 @@ jobs:
     docker:
       - image: circleci/node:14
     working_directory: ~/repo
-
+    
     steps:
+    - checkout
+      - run:
+          name: Install Docker Compose
+          command: |
+            curl -L https://github.com/docker/compose/releases/download/1.25.3/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
+            chmod +x ~/docker-compose
+            sudo mv ~/docker-compose /usr/local/bin/docker-compose
+      - setup-remote-docker
+      - run: docker-compose up -d
+      
       - run:
           name: Install libs
           command: sudo apt-get install libxtst6 libgconf-2-4 libnss3 libasound2 libgtk-3-0 libxss1
