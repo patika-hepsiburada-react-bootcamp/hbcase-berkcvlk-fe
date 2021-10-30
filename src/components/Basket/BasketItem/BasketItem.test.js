@@ -33,6 +33,7 @@ describe("Basket Item tests", () => {
 
   test("remove button should open the modal", () => {
     userEvent.click(removeButton);
+    expect(hideMenu).toHaveBeenCalledTimes(1);
     expect(showModal).toHaveBeenCalledTimes(1);
   });
 });
