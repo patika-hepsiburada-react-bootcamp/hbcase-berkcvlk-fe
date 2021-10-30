@@ -73,6 +73,7 @@ const Provider = ({ children }) => {
         setSearch,
         resetFilters,
         toggleVariant,
+        stringifyFilter,
         query: {
           filter: stringifyFilter(),
           search: search,
