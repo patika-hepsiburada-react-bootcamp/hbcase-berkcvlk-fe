@@ -15,7 +15,6 @@ jobs:
             chmod +x ~/docker-compose
             sudo mv ~/docker-compose /usr/local/bin/docker-compose
       - setup-remote-docker
-        version: 
       - run: docker-compose up -d
 
       - run:
