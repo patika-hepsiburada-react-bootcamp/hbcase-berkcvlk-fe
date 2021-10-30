@@ -12,10 +12,13 @@ workflows:
   sample: # This is the name of the workflow, feel free to change it to better match your workflow.
     # Inside the workflow, you define the jobs you want to run.
     jobs:
-      - node/test:
-          # This is the node version to use for the `cimg/node` tag
-          # Relevant tags can be found on the CircleCI Developer Hub
-          # https://circleci.com/developer/images/image/cimg/node
-          version: "16.10"
-          # If you are using yarn, change the line below from "npm" to "yarn"
-          pkg-manager: yarn
+      - steps:
+          - run:
+              name: Install libs
+              command: sudo apt-get install libxtst6 libgconf-2-4 libnss3 libasound2 libgtk-3-0 libxss1
+
+          - run: yarn install
+          - run: yarn test
+          - run:
+              name: Deploy
+              command: curl -X POST -d {} ${netlify_deploy_hook}
