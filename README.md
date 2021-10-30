@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# Patika.dev Hepsiburada Frontend Bootcamp - Case
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> Proje, study-case çalışmasının frontend bölümünü içermektedir. Gerekli kurulum adımlarını takip ettikten sonra [backend](https://github.com/patika-hepsiburada-react-bootcamp/hbcase-berkcvlk-be) projesinin de kurulumunu yapınız.
 
-## Available Scripts
+## Kurulum - Local
 
-In the project directory, you can run:
+Uygulamayı localde çalıştırabilmek için:
 
-### `yarn start`
+```
+git clone https://github.com/patika-hepsiburada-react-bootcamp/hbcase-berkcvlk-fe.git
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+cd hbcase-berkcvlk-fe
+yarn && yarn start
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Kurulum - Docker
 
-### `yarn test`
+Uygulamayı container üzerinde çalıştırmak için:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Gereklilikler
 
-### `yarn build`
+- Docker
+- Docker Compose (isteğe bağlı)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<i>Docker ile</i>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+// Projeyi klonladıktan sonra
+cd hbcase-berkcvlk-fe
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+docker build -t hbcase-frontend-image .
+docker run --name hbcase-frontend-app -d -p 3000:3000 hbcase-frontend-image
+```
 
-### `yarn eject`
+<i>Docker Compose ile</i>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+// Projeyi klonlayıp anadizine gittikten sonra
+docker-compose up -d
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Projeyi <b>localhost:3000</b> 'de görüntülemelisiniz.
+Projeyi durdurmak için: `docker-compose down` ya da `docker stop hbcase-frontend-app`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+> - Uygulamanın çalışabilmesi için anadizinde `.env` dosyası oluşturup `REACT_APP_API_ENDPOINT` değişkenini oluşturmalısınız.
+> - Oluşturduğunuz değişkene [backend reposundaki](https://github.com/patika-hepsiburada-react-bootcamp/hbcase-berkcvlk-be) kurulum adımlarından hangisini takip ettiyseniz gerekli endpointi giriniz.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Test
 
-## Learn More
+Uygulama testlerini çalıştırmak:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+yarn test
+```
