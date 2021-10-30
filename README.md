@@ -49,6 +49,10 @@ Projeyi durdurmak için: `docker-compose down` ya da `docker stop hbcase-fronten
 
 ## Test
 
+### Coverage
+
+![coverage](./figures/testcoverage.png)
+
 Uygulama testlerini çalıştırmak:
 
 ```
