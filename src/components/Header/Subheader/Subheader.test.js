@@ -64,3 +64,20 @@ describe("", () => {
     expect(searchedKey).toBeNull();
   });
 });
+
+describe("", () => {
+  test("brand should be visible if exists", () => {
+    render(
+      <QueriesContext.Provider
+        value={{ search: "", brand: ["apple"], setSearch: jest.fn() }}
+      >
+        <FiltersContext.Provider value={{ filters: [] }}>
+          <SubHeader />
+        </FiltersContext.Provider>
+      </QueriesContext.Provider>
+    );
+
+    const brandedTitle = screen.getByText("Apple Cep Telefonu");
+    expect(brandedTitle).toBeInTheDocument();
+  });
+});
