@@ -3,7 +3,7 @@ version: 2
 jobs:
   deploy:
     docker:
-      - image: circleci/node:14
+      - image: circleci/node:14.8
     working_directory: ~/repo
 
     steps:
@@ -15,6 +15,7 @@ jobs:
             chmod +x ~/docker-compose
             sudo mv ~/docker-compose /usr/local/bin/docker-compose
       - setup-remote-docker
+        version: 
       - run: docker-compose up -d
 
       - run:
