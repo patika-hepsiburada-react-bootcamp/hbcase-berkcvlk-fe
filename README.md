@@ -1,5 +1,7 @@
 # Patika.dev Hepsiburada Frontend Bootcamp - Case
 
+[![CircleCI](https://circleci.com/gh/patika-hepsiburada-react-bootcamp/hbcase-berkcvlk-fe/tree/main.svg?style=svg&circle-token=d41929e80330e8ab98c3664767bcc6fa82d6939d)](https://circleci.com/gh/patika-hepsiburada-react-bootcamp/hbcase-berkcvlk-fe/tree/main)
+
 > Proje, study-case çalışmasının frontend bölümünü içermektedir. Gerekli kurulum adımlarını takip ettikten sonra [backend](https://github.com/patika-hepsiburada-react-bootcamp/hbcase-berkcvlk-be) projesinin de kurulumunu yapınız.
 
 ## Kurulum - Local
