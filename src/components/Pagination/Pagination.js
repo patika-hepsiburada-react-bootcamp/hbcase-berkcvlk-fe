@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 import { usePagination } from "hooks";
 import * as S from "./Pagination.styled";
 
@@ -9,9 +11,11 @@ const Pagination = () => {
    * Filter changes can make total page number
    * smaller than current page. When this happen set page to the first
    */
-  if (page > pageCount) {
-    setPage(1);
-  }
+  useEffect(() => {
+    if (page > pageCount) {
+      setPage(1);
+    }
+  }, [page, pageCount]);
 
   /**
    * No need for pagination when total item count smaller than product
