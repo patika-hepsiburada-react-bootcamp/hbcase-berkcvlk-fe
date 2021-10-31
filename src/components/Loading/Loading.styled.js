@@ -11,39 +11,25 @@ export const Wrapper = styled.div`
 `;
 
 export const Spinner = styled.div`
-  width: 40px;
-  height: 40px;
+  &::before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    margin-top: -10px;
+    margin-left: -10px;
+    border-radius: 50%;
+    border-top: 4px solid ${theme.colors.orange};
+    border-right: 3px solid transparent;
+    animation: spinner 0.6s linear infinite;
 
-  display: inline-block;
-  position: relative;
-`;
-
-export const Bounce = styled.div`
-  position: absolute;
-  border: 4px solid ${theme.colors.orange};
-  opacity: 1;
-  border-radius: 50%;
-
-  animation: sk-bounce 1s infinite ease-in-out;
-
-  @keyframes sk-bounce {
-    0% {
-      top: 36px;
-      left: 36px;
-      width: 0;
-      height: 0;
-      opacity: 1;
-    }
-    100% {
-      top: 0px;
-      left: 0px;
-      width: 72px;
-      height: 72px;
-      opacity: 0;
+    @keyframes spinner {
+      to {
+        transform: rotate(360deg);
+      }
     }
   }
-`;
-
-export const Bounce2 = styled(Bounce)`
-  animation-delay: -0.5s;
 `;
